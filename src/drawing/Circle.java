@@ -30,6 +30,11 @@ public class Circle extends Shape{
 		return this.origin.distance(p);
 	}
 	
-
-
+	public double getRadius(){
+		return radius;
+	}
+	
+	public Color getColor(){
+		return color;
+	}
 }

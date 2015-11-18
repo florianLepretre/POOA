@@ -27,4 +27,16 @@ public class Rectangle extends Shape {
 		g.setColor(Color.BLACK);
 		g.drawRect(origin.x, origin.y, width, height);
 	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getHeight(){
+		return height;
+	}
+	
+	public Color getColor(){
+		return color;
+	}
 }

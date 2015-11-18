@@ -13,10 +13,12 @@ public class Drawing extends JPanel implements Iterable<Shape> {
 	private Observer observer;
 	
 	ArrayList<Shape> shapes;
+	ArrayList<Shape> selectedShapes;
 	
 	public Drawing(Observer observer){
 		super();
 		shapes = new ArrayList<Shape>();
+		selectedShapes = new ArrayList<Shape>();
 		this.observer = observer;
 	}
 	
@@ -61,5 +63,46 @@ public class Drawing extends JPanel implements Iterable<Shape> {
 	
 	public int getShapeSize(){
 		return shapes.size();
+	}
+	
+	public int getSelectedShapeSize(){
+		return selectedShapes.size();
+	}
+	
+	public ArrayList<Shape> getSelectedShapes(){
+		return selectedShapes;
+	}
+	
+	public void clearSelectedShapes(){
+		selectedShapes.clear();
+	}
+	
+	public void addSelectedShape(Shape s){
+		selectedShapes.add(s);
+	}
+	
+	public void duplicate(){
+		if (selectedShapes.size() == 0){
+			observer.update("No object selected...");
+		} else {
+			for (Shape s: selectedShapes){
+				Point p = new Point(s.getOrigin());
+				p.y += 100;
+				
+				if (s instanceof Rectangle){
+					Rectangle r = (Rectangle) s;
+					shapes.add(new Rectangle(p, r.getWidth(), r.getHeight(), r.getColor()));
+				}
+				
+				if (s instanceof Circle){
+					Circle c = (Circle) s;
+					shapes.add(new Circle(p, c.getRadius(), c.getColor()));
+				}
+			}
+			
+			selectedShapes.clear();
+			observer.update("Objects unselected.");
+			this.repaint();
+		}
 	}
 }

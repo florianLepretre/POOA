@@ -20,6 +20,7 @@ public class Paint {
 	private JButton clearButton;
 	private JButton circleButton;
 	private JButton rectangleButton;
+	private JButton duplicateButton;
 	private JPanel statusPanel;
 	private JPanel buttonPanel;
 	private JPanel mainPanel;
@@ -42,11 +43,13 @@ public class Paint {
 		clearButton = new JButton("Clear");
 		circleButton = new JButton("Circle");
 		rectangleButton = new JButton("Rectangle");
+		duplicateButton = new JButton("Duplicate");
 		
 		buttonPanel = new JPanel();
 		buttonPanel.add(clearButton);
 		buttonPanel.add(circleButton);
 		buttonPanel.add(rectangleButton);
+		buttonPanel.add(duplicateButton);
 		
 		status = new JLabel("Status Bar");
 		status.setFont(new Font("Sans Serif", Font.ITALIC, 12));
@@ -64,6 +67,7 @@ public class Paint {
 		clearButton.addActionListener(new ClearButtonListener(drawing));
 		circleButton.addActionListener(new CircleButtonListener(drawing));
 		rectangleButton.addActionListener(new RectangleButtonListener(drawing));
+		duplicateButton.addActionListener(new DuplicateButtonListener(drawing));
 		
 		//listeners pour la zone de dessin
 		DrawingMouseListener l = new DrawingMouseListener(drawing);

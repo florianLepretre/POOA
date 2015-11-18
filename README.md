@@ -13,3 +13,7 @@ Ajout d'une barre de statut avec le pattern **observer**.
 Possibilité de sélectioner des objets avec le *clic droit*, et de les déplacer tous ensemble.
 Utilisation du pattern **composite**.
 
+## Troisième amélioration
+
+Duplication des formes sélectionnées à l'aide du bouton *Duplicate*.
+Utilisation du pattern **composite**.
