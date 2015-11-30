@@ -12,7 +12,7 @@ public class RectangleButtonListener extends ShapeButtonListener {
 	protected Shape createShape() {
 		double width = Math.abs(destination.getX()-origin.getX());
 		double height = Math.abs(destination.getY()-origin.getY());
-		Rectangle r = new Rectangle(origin, (int)width, (int)height, Color.BLUE);
+		Rectangle r = new Rectangle(Drawing.getId(), origin, (int)width, (int)height, Color.BLUE);
 		return r;
 	}
 

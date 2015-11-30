@@ -8,6 +8,7 @@ import java.awt.Point;
  */
 public abstract class Shape {
 	
+	protected int id;
 	protected Point origin;
 	
 	public void setOrigin(Point p)
@@ -17,6 +18,10 @@ public abstract class Shape {
 	
 	public Point getOrigin(){
 		return origin;
+	}
+	
+	public int getId() {
+		return id;
 	}
 	
 	/**

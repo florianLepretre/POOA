@@ -10,13 +10,14 @@ public class Rectangle extends Shape {
 	int height;
 	Color color;
 	
-	public Rectangle(Point origin, int width, int height, Color color){
+	public Rectangle(int id, Point origin, int width, int height, Color color){
+		this.id = id;
 		this.origin = origin;
 		this.width = width;
 		this.height = height;
 		this.color = color;
 	}
-	
+
 	public boolean isOn(Point p) {
 		return(p.x > origin.x && p.x < origin.x+width && p.y > origin.y && p.y < origin.y+height);
 	}

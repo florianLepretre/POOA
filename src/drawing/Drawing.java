@@ -9,6 +9,7 @@ import java.util.*;
 public class Drawing extends JPanel implements Iterable<Shape> {
 
 	private static final long serialVersionUID = 1L;
+	private static int shapeID = 0;
 
 	private Observer observer;
 	
@@ -69,6 +70,11 @@ public class Drawing extends JPanel implements Iterable<Shape> {
 		return selectedShapes.size();
 	}
 	
+	public static int getId() {
+		shapeID += 1;
+		return shapeID;
+	}
+	
 	public ArrayList<Shape> getSelectedShapes(){
 		return selectedShapes;
 	}
@@ -91,12 +97,12 @@ public class Drawing extends JPanel implements Iterable<Shape> {
 				
 				if (s instanceof Rectangle){
 					Rectangle r = (Rectangle) s;
-					shapes.add(new Rectangle(p, r.getWidth(), r.getHeight(), r.getColor()));
+					shapes.add(new Rectangle(getId(), p, r.getWidth(), r.getHeight(), r.getColor()));
 				}
 				
 				if (s instanceof Circle){
 					Circle c = (Circle) s;
-					shapes.add(new Circle(p, c.getRadius(), c.getColor()));
+					shapes.add(new Circle(getId(), p, c.getRadius(), c.getColor()));
 				}
 			}
 			
